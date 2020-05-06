@@ -1,0 +1,120 @@
+/* Login Start */
+/* //////////////////////////// */
+.login {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.login__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0e7cff;
+  border-top-right-radius: 80px;
+  border-bottom-left-radius: 80px;
+  height: 375px;
+  box-shadow: 0px 4px 7px 0px rgba(14, 124, 255, 0.5);
+}
+.login__header--img {
+  width: 80px;
+  height: 80px;
+}
+.login__header--img img {
+  width: 80px;
+  height: 80px;
+}
+.login__header--title {
+  font-size: 28px;
+  color: white;
+  font-weight: lighter;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+}
+.login__form--title {
+  color: #0e7cff;
+  font-size: 28px;
+  font-weight: lighter;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.login__form--input {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border: none;
+  border-bottom: solid 1px grey;
+  opacity: 60%;
+  font-size: 16px;
+  outline: none;
+}
+.login__form--cont {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  align-self: center;
+  color: #0e7cff;
+}
+.login__form--button {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border: none;
+  background: #0e7cff;
+  outline: none;
+  border-radius: 2px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  height: 32px;
+  box-shadow: 0px 4px 7px 0px rgba(14, 124, 255, 0.5);
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+}
+.login__form--button:active {
+  transform: scale(0.9, 0.9);
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+  transform: scale(0.9, 0.9);
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+}
+
+/* //////////////////////////// */
+/* Login End */
+
+/* Responsive Bebe XD Start */
+/* //////////////////////////// */
+@media screen and (min-width: 480px) {
+  .login {
+    flex-direction: row-reverse;
+  }
+  .login__form {
+    justify-content: center;
+    width: 50%;
+    margin: 40px;
+  }
+
+  .login__header {
+    width: 50%;
+    height: 100%;
+    box-shadow: -3px 1px 8px 4px rgba(14, 124, 255, 0.4);
+  }
+  .login__header--img {
+    width: 120px;
+    height: 120px;
+  }
+  .login__header--img img {
+    width: 120px;
+    height: 120px;
+  }
+}
+/* //////////////////////////// */
+/* Responsive Bebe XD End */

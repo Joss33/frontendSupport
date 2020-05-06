@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "supportFrontend"
+    }
+  },
+  "defaultProject": "supportFrontend",
+  "cli": {
+    "analytics": false
+  }
 }

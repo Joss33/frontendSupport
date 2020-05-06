@@ -1,0 +1,122 @@
+.botoncito {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: #0e7cff;
+  box-shadow: 0px 4px 7px 0px rgba(14, 124, 255, 0.5);
+  outline: none;
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+}
+
+.botoncito:active {
+  transform: scale(0.9, 0.9);
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+  transform: scale(0.9, 0.9);
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+}
+.botoncito i {
+  font-size: 32px;
+  color: white;
+  outline: none;
+}
+
+.botoncito__Client {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0e7cff;
+  outline: none;
+  position: fixed;
+  bottom: 100px;
+  right: 38px;
+  border: none;
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+  animation-duration: 0.5s;
+  animation-name: slidein;
+}
+.botoncito__Client:active {
+  transform: scale(0.9, 0.9);
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+  transform: scale(0.9, 0.9);
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+}
+.botoncito__Client i {
+  color: white;
+}
+
+.botoncito__Support {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0e7cff;
+  outline: none;
+  position: fixed;
+  bottom: 150px;
+  right: 38px;
+  border: none;
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+  animation-duration: 0.5s;
+  animation-name: slideinSupport;
+}
+.botoncito__Support:active {
+  transform: scale(0.9, 0.9);
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+  transform: scale(0.9, 0.9);
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+}
+.botoncito__Support i {
+  color: white;
+}
+.boton {
+  display: none;
+}
+/* botoncito */
+/* ////////////////////////////////// */
+/* Animations */
+@keyframes slidein {
+  from {
+    bottom: 30px;
+  }
+  to {
+    bottom: 100px;
+  }
+}
+@keyframes slideinSupport {
+  from {
+    bottom: 30px;
+  }
+  to {
+    bottom: 150px;
+  }
+}
+/* ////////////////////////////////// */

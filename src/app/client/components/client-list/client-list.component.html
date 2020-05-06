@@ -1,0 +1,46 @@
+<div *ngIf="opctionView === 1" class="plusOption" (click)="buttonPlus()">
+  <ul>
+    <li><i class="fas fa-cog"></i>Soporte</li>
+    <li><i class="fas fa-pen"></i>Editar</li>
+    <li><i class="fas fa-trash-alt"></i>Eliminar</li>
+  </ul>
+</div>
+<!-- (submit)="submitLogin()" -->
+<div class="navbar">
+  <h1 class="navbar__title">{{ navBarTitle }}</h1>
+  <div class="navbar__searchClient">
+    <input
+      class="navbar__searchClient--input"
+      type="text"
+      placeholder="Buscar: Cliente"
+      name="filterClients"
+      [(ngModel)]="filterClients"
+    />
+    <i class="fas fa-search"></i>
+  </div>
+</div>
+<div class="container__list">
+  <div class="listClient" *ngIf="clients">
+    <form
+      class="listClient__card"
+      *ngFor="let client of clients | filter: filterClients; index as i"
+    >
+      <div class="listClient__card__header">
+        <div class="idClient">
+          <p name="clientID">{{ client.id }}</p>
+        </div>
+        <button class="buttonEdit" (click)="buttonPlus()">
+          +
+        </button>
+      </div>
+      <div class="listClient__card__body">
+        <p class="ClientName" name="clientName">{{ client.name }}</p>
+        <p class="ClientPhone" name="clientPhone">{{ client.phone }}</p>
+        <p class="ClientEmpresa" name="clientCompany">{{ client.company }}</p>
+      </div>
+    </form>
+  </div>
+  <div class="listClientNull" *ngIf="clients">
+    <h2>No hay clientes</h2>
+  </div>
+</div>
