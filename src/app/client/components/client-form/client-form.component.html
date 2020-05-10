@@ -1,15 +1,16 @@
 <div class="navbar">
   <h1 class="navbar__title">Clientes</h1>
-  <div class="navbar__searchClient"></div>
+  <a routerLink="/app"><i class="fas fa-long-arrow-alt-left"></i></a>
 </div>
-<form class="formClient">
-  <h2>Agregar</h2>
+<form class="formClient" (submit)="edit ? updateClient() : submitClient()">
+  <h2>{{ titleForm }}</h2>
   <input
     type="text"
     name="name"
     id="name"
     placeholder="Nombre"
     class="formClient__Input"
+    [(ngModel)]="client.name"
   />
   <input
     type="text"
@@ -17,6 +18,7 @@
     id="phone"
     placeholder="Telefono"
     class="formClient__Input"
+    [(ngModel)]="client.phone"
   />
   <input
     type="text"
@@ -24,6 +26,7 @@
     id="company"
     placeholder="Empresa"
     class="formClient__Input"
+    [(ngModel)]="client.company"
   />
-  <button class="formClient__Button">Editar</button>
+  <button class="formClient__Button">{{ titleForm }}</button>
 </form>

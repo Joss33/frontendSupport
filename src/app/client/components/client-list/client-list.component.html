@@ -1,11 +1,12 @@
 <div *ngIf="opctionView === 1" class="plusOption" (click)="buttonPlus()">
   <ul>
-    <li><i class="fas fa-cog"></i>Soporte</li>
-    <li><i class="fas fa-pen"></i>Editar</li>
-    <li><i class="fas fa-trash-alt"></i>Eliminar</li>
+    <li><i class="fas fa-cog"></i><a>Soporte</a></li>
+    <li><i class="fas fa-pen"></i><a (click)="updateClient()">Editar</a></li>
+    <li>
+      <i class="fas fa-trash-alt"></i><a (click)="deleteClient()">Eliminar</a>
+    </li>
   </ul>
 </div>
-<!-- (submit)="submitLogin()" -->
 <div class="navbar">
   <h1 class="navbar__title">{{ navBarTitle }}</h1>
   <div class="navbar__searchClient">
@@ -27,9 +28,9 @@
     >
       <div class="listClient__card__header">
         <div class="idClient">
-          <p name="clientID">{{ client.id }}</p>
+          <p name="clientID">{{ i }}</p>
         </div>
-        <button class="buttonEdit" (click)="buttonPlus()">
+        <button class="buttonEdit" (click)="buttonPlus(client._id, client)">
           +
         </button>
       </div>

@@ -54,10 +54,10 @@
   animation-name: slidein;
 }
 .botoncito__Client:active {
-  transform: scale(0.9, 0.9);
+  transform: scale(0.95, 0.95);
   transition-timing-function: ease-out;
   transition-duration: 100ms;
-  transform: scale(0.9, 0.9);
+  transform: scale(0.95, 0.95);
   transition-timing-function: ease-out;
   transition-duration: 100ms;
 }
@@ -108,7 +108,7 @@
     bottom: 30px;
   }
   to {
-    bottom: 100px;
+    bottom: 200px;
   }
 }
 @keyframes slideinSupport {

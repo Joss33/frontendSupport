@@ -1,6 +1,8 @@
 .navbar {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   height: 180px;
   padding-top: 24px;
   padding-left: 24px;
@@ -8,10 +10,17 @@
   background: #0e7cff;
   box-shadow: 0px 4px 7px 0px rgba(14, 124, 255, 0.5);
 }
+.navbar a {
+  margin-top: 24px;
+}
+.navbar i {
+  color: white;
+  font-size: 40px;
+}
 .navbar__title {
   margin-top: 20px;
   color: white;
-  align-self: flex-start;
+  // align-self: flex-start;
   font-weight: 500;
 }
 .formClient {
@@ -47,7 +56,7 @@
   color: white;
   font-size: 16px;
   font-weight: bold;
-  height: 32px;
+  height: 40px;
   box-shadow: 0px 4px 7px 0px rgba(14, 124, 255, 0.5);
   transform: scale(1, 1);
   transition-timing-function: ease-out;
@@ -55,6 +64,7 @@
   transform: scale(1, 1);
   transition-timing-function: ease-out;
   transition-duration: 250ms;
+  cursor: pointer;
 }
 .formClient__Button:active {
   transform: scale(0.9, 0.9);

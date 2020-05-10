@@ -1,0 +1,84 @@
+.pageNotFound {
+  height: 100vh;
+  background: #0e7cff;
+}
+.pageNotFound__404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // margin: 0px auto;
+  // height: 100%;
+}
+.pageNotFound__back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  margin: 0px auto;
+}
+
+.pageNotFound__back h1 {
+  color: white;
+  font-size: 32px;
+}
+
+.backButton {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border: none;
+  background: white;
+  outline: none;
+  border-radius: 2px;
+  color: #0e7cff;
+  font-size: 16px;
+  font-weight: bold;
+  height: 32px;
+  width: 200px;
+  box-shadow: 0px 4px 7px 0px rgba(195, 217, 243, 0.5);
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+  transform: scale(1, 1);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+  cursor: pointer;
+}
+.backButton:active {
+  transform: scale(0.9, 0.9);
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+  transform: scale(0.9, 0.9);
+  transition-timing-function: ease-out;
+  transition-duration: 100ms;
+}
+
+h1 {
+  color: white;
+  font-size: 200px;
+}
+img {
+  width: 160px;
+  height: 160px;
+  -webkit-animation: 7s rotate linear infinite;
+  animation: 7s rotate linear infinite;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}

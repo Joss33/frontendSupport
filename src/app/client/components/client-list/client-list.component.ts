@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Client } from './../../../core/model/client.model';
 import { ClientService } from './../../../core/services/client/client.service';
@@ -15,8 +16,14 @@ export class ClientListComponent implements OnInit {
   filterClients: Client[] = [];
 
   clients: Client[] = [];
+  clientID = '';
+  client: Client = {
+    name: '',
+    phone: '',
+    company: '',
+  };
 
-  constructor(private clientService: ClientService) {}
+  constructor(private clientService: ClientService, private router: Router) {}
 
   ngOnInit() {
     this.getClients();
@@ -28,11 +35,28 @@ export class ClientListComponent implements OnInit {
     });
   }
 
-  buttonPlus() {
+  buttonPlus(clientID?, client?) {
+    this.clientID = clientID;
+    this.client = client;
     if (this.opctionView === 0) {
       this.opctionView = 1;
     } else {
       this.opctionView = 0;
     }
+  }
+
+  updateClient() {
+    this.router.navigate(['app/client/edit', this.clientID]);
+  }
+
+  deleteClient() {
+    this.clientService.deleteClient(this.clientID).subscribe(
+      (res) => {
+        this.getClients();
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }

@@ -11,7 +11,11 @@ const routes: Routes = [
     component: ClientListComponent,
   },
   {
-    path: 'clientForm',
+    path: 'client',
+    component: ClientFormComponent,
+  },
+  {
+    path: 'client/edit/:id',
     component: ClientFormComponent,
   },
 ];

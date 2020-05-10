@@ -7,23 +7,25 @@
   </div>
   <!-- Login Formulario -->
   <!-- ///////////////////////////////////////////////////////// -->
-  <div class="login__form">
+  <form class="login__form" (submit)="submitLogin()">
     <h2 class="login__form--title">Login</h2>
     <input
       type="text"
       name="email"
       id="email"
-      placeholder="Email"
+      placeholder="Usuario"
       class="login__form--input"
+      [(ngModel)]="user.username"
     />
     <input
-      type="text"
+      type="password"
       name="password"
       id="password"
       placeholder="Contraseña"
       class="login__form--input"
+      [(ngModel)]="user.password"
     />
     <a href="#" class="login__form--cont">¿Olvidaste tu contraseña?</a>
     <button class="login__form--button">Iniciar</button>
-  </div>
+  </form>
 </div>
