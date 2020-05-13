@@ -10,6 +10,7 @@ import { ClientFormComponent } from './components/client-form/client-form.compon
 import { ClientListComponent } from './components/client-list/client-list.component';
 // Pipes
 import { SharedModule } from './../shared/shared.module';
+import { SupportModule } from './../support/support.module';
 import { ClientService } from '../core/services/client/client.service';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ClientService } from '../core/services/client/client.service';
     FormsModule,
     SharedModule,
     RouterModule,
+    SupportModule,
   ],
 })
 export class ClientModule {}

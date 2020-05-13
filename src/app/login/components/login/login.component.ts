@@ -22,8 +22,7 @@ export class LoginComponent implements OnInit {
     if (this.user.username !== '' || this.user.password !== '') {
       this.loginService.login(this.user).subscribe(
         (res) => {
-          console.log(res);
-          // this.router.navigate(['/app']);
+          this.router.navigate(['/app']);
         },
         (err) => {
           console.log(err);

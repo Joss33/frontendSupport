@@ -20,14 +20,14 @@ const routes: Routes = [
           import('./client/client.module').then((m) => m.ClientModule),
       },
       {
+        path: 'app',
+        loadChildren: () =>
+          import('./support/support.module').then((m) => m.SupportModule),
+      },
+      {
         path: 'user',
         loadChildren: () =>
           import('./user/user.module').then((m) => m.UserModule),
-      },
-      {
-        path: 'support',
-        loadChildren: () =>
-          import('./support/support.module').then((m) => m.SupportModule),
       },
     ],
   },
