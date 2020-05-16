@@ -1,12 +1,23 @@
-<div *ngIf="opctionView === 1" class="plusOption" (click)="buttonPlus()">
-  <ul>
-    <li><i class="fas fa-cog"></i><a>Soporte</a></li>
-    <li><i class="fas fa-pen"></i><a (click)="updateClient()">Editar</a></li>
-    <li>
-      <i class="fas fa-trash-alt"></i><a (click)="deleteClient()">Eliminar</a>
-    </li>
-  </ul>
+<div class="toast" *ngIf="toast === 1">
+  <p><i class="fas fa-info-circle"></i>Eliminado</p>
 </div>
+<div *ngIf="opctionView === 1" class="plusOption" (click)="buttonPlus()"></div>
+<ul class="plusOption__list" *ngIf="opctionView === 1" (click)="buttonPlus()">
+  <li class="listTitle"><i [class]="listTitleIcons"></i>{{ listTitle }}</li>
+  <li *ngIf="clientsOrSupports"><i class="fas fa-cog"></i><a>Soporte</a></li>
+  <li>
+    <i class="fas fa-pen"></i
+    ><a (click)="clientsOrSupports ? updateClient() : updateSupport()"
+      >Editar</a
+    >
+  </li>
+  <li>
+    <i class="fas fa-trash-alt"></i
+    ><a (click)="clientsOrSupports ? deleteClient() : deleteSupport()"
+      >Eliminar</a
+    >
+  </li>
+</ul>
 <div class="navbar">
   <h1 class="navbar__title">{{ navBarTitle }}</h1>
   <div class="navbar__searchClient">
@@ -45,4 +56,7 @@
     <h2>No hay clientes</h2>
   </div>
 </div>
-<app-support-list></app-support-list>
+<app-support-list
+  (supportPlusClick)="clickSupportPlus($event)"
+  #support
+></app-support-list>

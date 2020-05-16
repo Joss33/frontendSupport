@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Support } from './../../../core/model/support.model';
@@ -12,18 +12,14 @@ import { ClientService } from './../../../core/services/client/client.service';
   styleUrls: ['./support-list.component.scss'],
 })
 export class SupportListComponent implements OnInit {
+  @Output() supportPlusClick: EventEmitter<any> = new EventEmitter();
   supportID = '';
-  ClientID = '';
 
-  opctionView = 0;
+  clientsOrSupports = false;
 
-  Clients: Client = {
-    name: '',
-    phone: '',
-    company: '',
-  };
+  Clients = [];
 
-  supports: Support[] = [];
+  Supports = [];
   support: Support = {
     date: new Date(),
     detail: '',
@@ -36,6 +32,8 @@ export class SupportListComponent implements OnInit {
     users: '',
   };
 
+  supportClients = [];
+
   constructor(
     private supportService: SupportService,
     private clientService: ClientService,
@@ -44,39 +42,49 @@ export class SupportListComponent implements OnInit {
 
   ngOnInit() {
     this.getSupports();
-    this.getClientByID();
   }
 
   buttonSupportPlus(support?) {
     this.supportID = support._id;
-    // this.ClientID = support.client;
-    if (this.opctionView === 0) {
-      this.opctionView = 1;
-    } else {
-      this.opctionView = 0;
-    }
+    this.support = support;
+    this.supportPlusClick.emit(this.clientsOrSupports);
   }
 
   getSupports() {
     this.supportService.getAllSupports().subscribe((supports) => {
-      this.supports = supports;
+      this.Supports = supports;
     });
-    this.support.clients = this.ClientID;
+    this.getClients();
+  }
+  getClients() {
+    this.clientService.getAllClients().subscribe((clients) => {
+      this.Clients = clients;
+    });
   }
 
-  getClientByID() {
-    this.clientService.getClient(this.ClientID).subscribe(
+  // getSupportClients(supports, clients) {
+  //   this.supportClients = supports.map((support) => {
+  //     support['clients'] = [];
+  //     support['clients'] = clients.map((client) => {
+  //       if (support.clients === client._id) {
+  //         return client;
+  //       }
+  //     });
+  //     return support;
+  //   });
+  //   console.log(this.supportClients);
+  // }
+
+  updateSupport() {
+    this.supportService.updateSupport(this.supportID, this.support).subscribe(
       (res) => {
-        this.Clients = res;
-        console.log(this.Clients);
+        this.router.navigate(['/app']);
       },
       (err) => {
         console.log(err);
       }
     );
   }
-
-  updateSupport() {}
 
   deleteSupport() {
     this.supportService.deleteSupport(this.supportID).subscribe(
