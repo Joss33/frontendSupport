@@ -1,1 +1,64 @@
-<p>support-form works!</p>
+<div class="navbar">
+  <h1 class="navbar__title">Soportes</h1>
+  <a routerLink="/app"><i class="fas fa-long-arrow-alt-left"></i></a>
+</div>
+<form class="formSupport" (submit)="edit ? updateSupport() : submitSupport()">
+  <h2>{{ titleForm }}</h2>
+  <input
+    type="date"
+    name="date"
+    id="date"
+    placeholder="Nombre"
+    class="formSupport__Input"
+    [(ngModel)]="support.date"
+  />
+  <input
+    type="text"
+    name="detail"
+    id="detail"
+    placeholder="Detalle"
+    class="formSupport__Input"
+    [(ngModel)]="support.detail"
+  />
+  <input
+    type="text"
+    name="priority"
+    id="priority"
+    placeholder="Prioridad"
+    class="formSupport__Input"
+    [(ngModel)]="support.priority"
+  />
+  <input
+    type="text"
+    name="remoteProgram"
+    id="remoteProgram"
+    placeholder="Programa Remoto"
+    class="formSupport__Input"
+    [(ngModel)]="support.remoteProgram"
+  />
+  <input
+    type="text"
+    name="solution"
+    id="solution"
+    placeholder="Solucion"
+    class="formSupport__Input"
+    [(ngModel)]="support.solution"
+  />
+  <input
+    type="date"
+    name="solutionDate"
+    id="solutionDate"
+    placeholder="Fecha de Solucion"
+    class="formSupport__Input"
+    [(ngModel)]="support.solutionDate"
+  />
+  <input
+    type="text"
+    name="state"
+    id="state"
+    placeholder="Estado"
+    class="formSupport__Input"
+    [(ngModel)]="support.state"
+  />
+  <button class="formSupport__Button">{{ titleForm }}</button>
+</form>

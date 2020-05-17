@@ -11,7 +11,11 @@ const routes: Routes = [
     component: SupportListComponent,
   },
   {
-    path: 'edit',
+    path: 'support/create/:clientID',
+    component: SupportFormComponent,
+  },
+  {
+    path: 'support/update/:id',
     component: SupportFormComponent,
   },
 ];

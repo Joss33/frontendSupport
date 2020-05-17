@@ -4,7 +4,9 @@
 <div *ngIf="opctionView === 1" class="plusOption" (click)="buttonPlus()"></div>
 <ul class="plusOption__list" *ngIf="opctionView === 1" (click)="buttonPlus()">
   <li class="listTitle"><i [class]="listTitleIcons"></i>{{ listTitle }}</li>
-  <li *ngIf="clientsOrSupports"><i class="fas fa-cog"></i><a>Soporte</a></li>
+  <li *ngIf="clientsOrSupports">
+    <i class="fas fa-cog"></i><a (click)="createSupport()">Soporte</a>
+  </li>
   <li>
     <i class="fas fa-pen"></i
     ><a (click)="clientsOrSupports ? updateClient() : updateSupport()"

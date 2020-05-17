@@ -54,7 +54,6 @@ export class SupportListComponent implements OnInit {
     this.supportService.getAllSupports().subscribe((supports) => {
       this.Supports = supports;
     });
-    this.getClients();
   }
   getClients() {
     this.clientService.getAllClients().subscribe((clients) => {
@@ -76,14 +75,7 @@ export class SupportListComponent implements OnInit {
   // }
 
   updateSupport() {
-    this.supportService.updateSupport(this.supportID, this.support).subscribe(
-      (res) => {
-        this.router.navigate(['/app']);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    this.router.navigate(['app/support/update', this.supportID]);
   }
 
   deleteSupport() {
