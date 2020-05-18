@@ -4,13 +4,15 @@
     <div class="card" *ngFor="let soporte of supportClients; index as i">
       <div class="card__header">
         <button class="card__header--id">{{ i }}</button>
-        <button class="card__header--plus" (click)="buttonSupportPlus(support)">
+        <button class="card__header--plus" (click)="buttonSupportPlus(soporte)">
           +
         </button>
       </div>
       <div class="card__body">
         <div class="card__body--content">
-          <p><strong>Cliente: </strong>{{ soporte.name }}</p>
+          <p *ngFor="let cliente of soporte.clients">
+            <strong *ngIf="cliente">Cliente: {{ cliente.name }}</strong>
+          </p>
           <p><strong>Fecha:</strong> {{ soporte.date }}</p>
           <p><strong>Detalle:</strong> {{ soporte.detail }}</p>
           <p><strong>Prioridad:</strong>{{ soporte.priority }}</p>

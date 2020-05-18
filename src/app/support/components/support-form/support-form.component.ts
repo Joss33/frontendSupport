@@ -30,7 +30,7 @@ export class SupportFormComponent implements OnInit {
     solutionDate: new Date(),
     state: '',
     clients: '',
-    users: '',
+    users: '5eb05e9b02b4363234c4599e',
   };
 
   constructor(
@@ -55,6 +55,7 @@ export class SupportFormComponent implements OnInit {
         this.clientService.getClient(params.clientID).subscribe((res) => {
           this.client = res;
         });
+        this.support.clients = params.clientID;
       }
     }
   }

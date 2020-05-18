@@ -53,37 +53,48 @@ export class SupportListComponent implements OnInit {
   getSupports() {
     this.supportService.getAllSupports().subscribe((supports) => {
       this.Supports = supports;
-      this.clientService.getAllClients().subscribe((clients) => {
-        this.Clients = clients;
-        this.getSupportClients(this.Supports, this.Clients);
+      this.clientService.getAllClients().subscribe((client) => {
+        this.Clients = client;
+        this.supportClients = this.Supports.map((support: any) => {
+          // support['clients'] = [];
+          support['clients'] = this.Clients.map((clientes: any) => {
+            if (support.clients === clientes._id) {
+              return clientes;
+            }
+          });
+          return support;
+        });
+        console.log(this.supportClients);
       });
     });
   }
-  getClients() {
-    this.clientService.getAllClients().subscribe((clients) => {
-      this.Clients = clients;
-    });
-  }
+  // getClients() {
+  //   this.clientService.getAllClients().subscribe((clients) => {
+  //     this.Clients = clients;
+  //   });
+  // }
 
-  getSupportClients(supports, clients) {
-    this.supportClients = supports.map((support: any) => {
-      support[clients] = [];
-      support[clients] = clients.map((client: any) => {
-        if (support.clients === client._id) {
-          console.log(client);
-          return client;
-        }
-      });
-      return support;
-    });
-    console.log(this.supportClients);
-  }
+  // getSupportClients(supports, clients) {
+  //   this.supportClients = supports.map((support: Support) => {
+  //     support[clients] = [];
+  //     support.clients = clients.map((client: any) => {
+  //       if (support.clients === clients._id) {
+  //         console.log(client);
+  //         return client;
+  //       }
+  //     });
+  //     return support;
+  //   });
+  //   console.log(this.supportClients);
+  // }
 
   updateSupport() {
     this.router.navigate(['app/support/update', this.supportID]);
   }
 
   deleteSupport() {
+    console.log(this.supportID);
+
     this.supportService.deleteSupport(this.supportID).subscribe(
       (res) => {
         this.getSupports();
