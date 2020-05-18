@@ -5,6 +5,15 @@
 <form class="formSupport" (submit)="edit ? updateSupport() : submitSupport()">
   <h2>{{ titleForm }}</h2>
   <input
+    type="text"
+    name="date"
+    readonly
+    id="date"
+    placeholder="Nombre"
+    class="formSupport__Input"
+    [(ngModel)]="client.name"
+  />
+  <input
     type="date"
     name="date"
     id="date"

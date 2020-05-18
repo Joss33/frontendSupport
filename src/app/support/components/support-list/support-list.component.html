@@ -1,7 +1,7 @@
 <div class="container__support">
   <h1 class="container__support--title">Resultados de soportes:</h1>
   <div class="container__ListCard" *ngIf="Supports">
-    <div class="card" *ngFor="let support of Supports; index as i">
+    <div class="card" *ngFor="let soporte of supportClients; index as i">
       <div class="card__header">
         <button class="card__header--id">{{ i }}</button>
         <button class="card__header--plus" (click)="buttonSupportPlus(support)">
@@ -10,14 +10,14 @@
       </div>
       <div class="card__body">
         <div class="card__body--content">
-          <p><strong>Cliente: </strong>{{ support.name }}</p>
-          <p><strong>Fecha:</strong> {{ support.date }}</p>
-          <p><strong>Detalle:</strong> {{ support.detail }}</p>
-          <p><strong>Prioridad:</strong>{{ support.priority }}</p>
-          <p><strong>Programa remoto:</strong>{{ support.remoteProgram }}</p>
-          <p><strong>Solucion:</strong> {{ support.solution }}</p>
-          <p><strong>Fecha de solucion:</strong> {{ support.solutionDate }}</p>
-          <p><strong>Estado:</strong> {{ support.state }}</p>
+          <p><strong>Cliente: </strong>{{ soporte.name }}</p>
+          <p><strong>Fecha:</strong> {{ soporte.date }}</p>
+          <p><strong>Detalle:</strong> {{ soporte.detail }}</p>
+          <p><strong>Prioridad:</strong>{{ soporte.priority }}</p>
+          <p><strong>Programa remoto:</strong>{{ soporte.remoteProgram }}</p>
+          <p><strong>Solucion:</strong> {{ soporte.solution }}</p>
+          <p><strong>Fecha de solucion:</strong> {{ soporte.solutionDate }}</p>
+          <p><strong>Estado:</strong> {{ soporte.state }}</p>
         </div>
       </div>
     </div>

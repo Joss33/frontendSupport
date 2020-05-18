@@ -53,6 +53,10 @@ export class SupportListComponent implements OnInit {
   getSupports() {
     this.supportService.getAllSupports().subscribe((supports) => {
       this.Supports = supports;
+      this.clientService.getAllClients().subscribe((clients) => {
+        this.Clients = clients;
+        this.getSupportClients(this.Supports, this.Clients);
+      });
     });
   }
   getClients() {
@@ -61,18 +65,19 @@ export class SupportListComponent implements OnInit {
     });
   }
 
-  // getSupportClients(supports, clients) {
-  //   this.supportClients = supports.map((support) => {
-  //     support['clients'] = [];
-  //     support['clients'] = clients.map((client) => {
-  //       if (support.clients === client._id) {
-  //         return client;
-  //       }
-  //     });
-  //     return support;
-  //   });
-  //   console.log(this.supportClients);
-  // }
+  getSupportClients(supports, clients) {
+    this.supportClients = supports.map((support: any) => {
+      support[clients] = [];
+      support[clients] = clients.map((client: any) => {
+        if (support.clients === client._id) {
+          console.log(client);
+          return client;
+        }
+      });
+      return support;
+    });
+    console.log(this.supportClients);
+  }
 
   updateSupport() {
     this.router.navigate(['app/support/update', this.supportID]);
