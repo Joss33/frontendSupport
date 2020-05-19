@@ -68,28 +68,11 @@ export class SupportListComponent implements OnInit {
       });
     });
   }
-  // getClients() {
-  //   this.clientService.getAllClients().subscribe((clients) => {
-  //     this.Clients = clients;
-  //   });
-  // }
-
-  // getSupportClients(supports, clients) {
-  //   this.supportClients = supports.map((support: Support) => {
-  //     support[clients] = [];
-  //     support.clients = clients.map((client: any) => {
-  //       if (support.clients === clients._id) {
-  //         console.log(client);
-  //         return client;
-  //       }
-  //     });
-  //     return support;
-  //   });
-  //   console.log(this.supportClients);
-  // }
 
   updateSupport() {
-    this.router.navigate(['app/support/update', this.supportID]);
+    this.router.navigate([
+      `app/support/update/${this.supportID}/${this.support.clients[0]['_id']}`,
+    ]);
   }
 
   deleteSupport() {

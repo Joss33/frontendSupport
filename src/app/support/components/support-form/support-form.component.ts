@@ -12,6 +12,7 @@ import { ClientService } from './../../../core/services/client/client.service';
 })
 export class SupportFormComponent implements OnInit {
   titleForm = 'Agregar';
+  typeInput = 'date';
 
   edit = false;
 
@@ -42,16 +43,22 @@ export class SupportFormComponent implements OnInit {
 
   ngOnInit(): void {
     const params = this.activatedRoute.snapshot.params;
-    if (params.id) {
+    if (params.id && params.clientID) {
       this.supportService.getSupport(params.id).subscribe((res) => {
         this.support = res;
         this.edit = true;
         this.titleForm = 'Editar';
+        this.typeInput = 'text';
       });
+      this.clientService.getClient(params.clientID).subscribe((res) => {
+        this.client = res;
+      });
+      this.support.clients = params.clientID;
     } else {
       if (params.clientID) {
         this.edit = false;
         this.titleForm = 'Agregar';
+        this.typeInput = 'date';
         this.clientService.getClient(params.clientID).subscribe((res) => {
           this.client = res;
         });

@@ -10,9 +10,11 @@
       </div>
       <div class="card__body">
         <div class="card__body--content">
-          <p *ngFor="let cliente of soporte.clients">
-            <strong *ngIf="cliente">Cliente: {{ cliente.name }}</strong>
-          </p>
+          <strong *ngIf="soporte.clients">
+            <p *ngFor="let cliente of soporte.clients">
+              <strong *ngIf="cliente">Cliente: {{ cliente.name }}</strong>
+            </p>
+          </strong>
           <p><strong>Fecha:</strong> {{ soporte.date }}</p>
           <p><strong>Detalle:</strong> {{ soporte.detail }}</p>
           <p><strong>Prioridad:</strong>{{ soporte.priority }}</p>

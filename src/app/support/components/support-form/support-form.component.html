@@ -6,18 +6,18 @@
   <h2>{{ titleForm }}</h2>
   <input
     type="text"
-    name="date"
+    name="name"
     readonly
-    id="date"
+    id="name"
     placeholder="Nombre"
     class="formSupport__Input"
     [(ngModel)]="client.name"
   />
   <input
-    type="date"
+    [type]="typeInput"
     name="date"
     id="date"
-    placeholder="Nombre"
+    placeholder="Fecha"
     class="formSupport__Input"
     [(ngModel)]="support.date"
   />
@@ -54,7 +54,7 @@
     [(ngModel)]="support.solution"
   />
   <input
-    type="date"
+    [type]="typeInput"
     name="solutionDate"
     id="solutionDate"
     placeholder="Fecha de Solucion"
