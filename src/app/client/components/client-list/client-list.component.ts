@@ -99,12 +99,14 @@ export class ClientListComponent implements OnInit {
       this.opctionView = 0;
     }
   }
+
+  createSupport() {
+    this.router.navigate(['app/support/create', this.clientID]);
+  }
+
   updateSupport() {
     this.clientsOrSupports = false;
     this.supportListComponent.updateSupport();
-  }
-  createSupport() {
-    this.router.navigate(['app/support/create', this.clientID]);
   }
 
   deleteSupport() {

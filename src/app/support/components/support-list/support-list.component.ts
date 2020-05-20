@@ -33,6 +33,7 @@ export class SupportListComponent implements OnInit {
   };
 
   supportClients = [];
+  supportByClients = [];
 
   constructor(
     private supportService: SupportService,
@@ -64,15 +65,19 @@ export class SupportListComponent implements OnInit {
           });
           return support;
         });
-        console.log(this.supportClients);
       });
     });
   }
 
   updateSupport() {
-    this.router.navigate([
-      `app/support/update/${this.supportID}/${this.support.clients[0]['_id']}`,
-    ]);
+    for (let i = 0; i <= this.support.clients.length; i++) {
+      if (this.support.clients[i]) {
+        const selectedCustomer = i;
+        this.router.navigate([
+          `app/support/update/${this.supportID}/${this.support.clients[selectedCustomer]['_id']}`,
+        ]);
+      }
+    }
   }
 
   deleteSupport() {
