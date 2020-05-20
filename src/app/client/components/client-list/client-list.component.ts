@@ -51,6 +51,7 @@ export class ClientListComponent implements OnInit {
     this.listTitle = 'Clientes';
     this.clientID = clientID;
     this.client = client;
+    this.clientsOrSupports = true;
     if (this.opctionView === 0) {
       this.opctionView = 1;
     } else {

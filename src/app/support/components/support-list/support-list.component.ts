@@ -18,22 +18,22 @@ export class SupportListComponent implements OnInit {
   clientsOrSupports = false;
 
   Clients = [];
+  filterClients = [];
 
   Supports = [];
   support: Support = {
-    date: new Date(),
+    date: '',
     detail: '',
     priority: '',
     remoteProgram: '',
     solution: '',
-    solutionDate: new Date(),
+    solutionDate: '',
     state: '',
     clients: '',
     users: '',
   };
 
   supportClients = [];
-  supportByClients = [];
 
   constructor(
     private supportService: SupportService,
@@ -57,7 +57,7 @@ export class SupportListComponent implements OnInit {
       this.clientService.getAllClients().subscribe((client) => {
         this.Clients = client;
         this.supportClients = this.Supports.map((support: any) => {
-          // support['clients'] = [];
+          // tslint:disable-next-line: no-string-literal
           support['clients'] = this.Clients.map((clientes: any) => {
             if (support.clients === clientes._id) {
               return clientes;
@@ -74,6 +74,7 @@ export class SupportListComponent implements OnInit {
       if (this.support.clients[i]) {
         const selectedCustomer = i;
         this.router.navigate([
+          // tslint:disable-next-line: no-string-literal
           `app/support/update/${this.supportID}/${this.support.clients[selectedCustomer]['_id']}`,
         ]);
       }
@@ -81,8 +82,6 @@ export class SupportListComponent implements OnInit {
   }
 
   deleteSupport() {
-    console.log(this.supportID);
-
     this.supportService.deleteSupport(this.supportID).subscribe(
       (res) => {
         this.getSupports();

@@ -4,6 +4,8 @@ import { Support } from './../../../core/model/support.model';
 import { SupportService } from './../../../core/services/support/support.service';
 import { Client } from './../../../core/model/client.model';
 import { ClientService } from './../../../core/services/client/client.service';
+import { DatePipe } from '@angular/common';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-support-form',
@@ -12,7 +14,7 @@ import { ClientService } from './../../../core/services/client/client.service';
 })
 export class SupportFormComponent implements OnInit {
   titleForm = 'Agregar';
-  typeInput = 'date';
+  // typeInput = 'date';
 
   edit = false;
 
@@ -23,12 +25,12 @@ export class SupportFormComponent implements OnInit {
   };
 
   support: Support = {
-    date: new Date(),
+    date: '',
     detail: '',
     priority: '',
     remoteProgram: '',
     solution: '',
-    solutionDate: new Date(),
+    solutionDate: '',
     state: '',
     clients: '',
     users: '5eb05e9b02b4363234c4599e',
@@ -46,9 +48,13 @@ export class SupportFormComponent implements OnInit {
     if (params.id && params.clientID) {
       this.supportService.getSupport(params.id).subscribe((res) => {
         this.support = res;
+        this.support.date = moment(this.support.date).format('YYYY-DD-MM');
+        this.support.solutionDate = moment(this.support.date).format(
+          'YYYY-DD-MM'
+        );
         this.edit = true;
         this.titleForm = 'Editar';
-        this.typeInput = 'text';
+        // this.typeInput = 'text';
       });
       this.clientService.getClient(params.clientID).subscribe((res) => {
         this.client = res;
@@ -58,7 +64,7 @@ export class SupportFormComponent implements OnInit {
       if (params.clientID) {
         this.edit = false;
         this.titleForm = 'Agregar';
-        this.typeInput = 'date';
+        // this.typeInput = 'date';
         this.clientService.getClient(params.clientID).subscribe((res) => {
           this.client = res;
         });

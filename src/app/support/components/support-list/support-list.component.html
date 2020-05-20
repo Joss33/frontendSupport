@@ -11,22 +11,25 @@
       <div class="card__body">
         <div class="card__body--content">
           <strong *ngIf="soporte.clients">
-            <p *ngFor="let cliente of soporte.clients">
-              <strong *ngIf="cliente">Cliente: {{ cliente.name }}</strong>
+            <p *ngFor="let client of soporte.clients | filter: filterClients">
+              <strong *ngIf="client">Cliente: {{ client.name }}</strong>
             </p>
           </strong>
-          <p><strong>Fecha:</strong> {{ soporte.date }}</p>
+          <p><strong>Fecha:</strong> {{ soporte.date | date: "longDate" }}</p>
           <p><strong>Detalle:</strong> {{ soporte.detail }}</p>
           <p><strong>Prioridad:</strong>{{ soporte.priority }}</p>
           <p><strong>Programa remoto:</strong>{{ soporte.remoteProgram }}</p>
           <p><strong>Solucion:</strong> {{ soporte.solution }}</p>
-          <p><strong>Fecha de solucion:</strong> {{ soporte.solutionDate }}</p>
+          <p>
+            <strong>Fecha de solucion:</strong>
+            {{ soporte.solutionDate | date: "longDate" }}
+          </p>
           <p><strong>Estado:</strong> {{ soporte.state }}</p>
         </div>
       </div>
     </div>
-    <div class="listSupportNull" *ngIf="Supports">
-      <h2>No hay Soportes</h2>
-    </div>
+  </div>
+  <div class="listSupportNull" *ngIf="Supports">
+    <h2>No hay Soportes</h2>
   </div>
 </div>
