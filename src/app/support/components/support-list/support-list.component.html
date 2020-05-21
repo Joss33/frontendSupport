@@ -3,7 +3,7 @@
   <div class="container__ListCard" *ngIf="Supports">
     <div class="card" *ngFor="let soporte of supportClients; index as i">
       <div class="card__header">
-        <button class="card__header--id">{{ i }}</button>
+        <button class="card__header--id">{{ i + 1 }}</button>
         <button class="card__header--plus" (click)="buttonSupportPlus(soporte)">
           +
         </button>
@@ -11,7 +11,7 @@
       <div class="card__body">
         <div class="card__body--content">
           <strong *ngIf="soporte.clients">
-            <p *ngFor="let client of soporte.clients | filter: filterClients">
+            <p *ngFor="let client of soporte.clients">
               <strong *ngIf="client">Cliente: {{ client.name }}</strong>
             </p>
           </strong>

@@ -23,7 +23,7 @@ export class ClientListComponent implements OnInit {
 
   clientsOrSupports = true;
 
-  filterClients: Client[] = [];
+  filterClients = [];
 
   clients: Client[] = [];
   clientID = '';
