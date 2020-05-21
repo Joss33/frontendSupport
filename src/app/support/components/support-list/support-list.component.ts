@@ -13,12 +13,12 @@ import { ClientService } from './../../../core/services/client/client.service';
 })
 export class SupportListComponent implements OnInit {
   @Output() supportPlusClick: EventEmitter<any> = new EventEmitter();
+  @Input() filterClients = [];
   supportID = '';
 
   clientsOrSupports = false;
 
   Clients = [];
-  filterClients = [];
 
   Supports = [];
   support: Support = {

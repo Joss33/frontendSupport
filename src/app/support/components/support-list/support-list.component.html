@@ -1,7 +1,13 @@
 <div class="container__support">
   <h1 class="container__support--title">Resultados de soportes:</h1>
   <div class="container__ListCard" *ngIf="Supports">
-    <div class="card" *ngFor="let soporte of supportClients; index as i">
+    <div
+      class="card"
+      *ngFor="
+        let soporte of supportClients | filterSupport: filterClients;
+        index as i
+      "
+    >
       <div class="card__header">
         <button class="card__header--id">{{ i + 1 }}</button>
         <button class="card__header--plus" (click)="buttonSupportPlus(soporte)">
