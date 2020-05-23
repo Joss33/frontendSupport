@@ -46,6 +46,20 @@
   outline: none;
 }
 
+.formSupport__select {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  opacity: 60%;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  option {
+    color: grey;
+  }
+}
+
 .formSupport__Button {
   margin-top: 12px;
   margin-bottom: 12px;

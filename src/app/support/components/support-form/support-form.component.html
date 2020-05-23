@@ -30,22 +30,29 @@
     class="formSupport__Input"
     [(ngModel)]="support.detail"
   />
-  <input
-    type="text"
+  <select
     name="priority"
     id="priority"
-    placeholder="Prioridad"
-    class="formSupport__Input"
     [(ngModel)]="support.priority"
-  />
-  <input
-    type="text"
+    class="formSupport__select"
+  >
+    <option value="" disabled selected>Prioridad</option>
+    <option value="Alta">Alta</option>
+    <option value="Media">Media</option>
+    <option value="Baja">Baja</option>
+  </select>
+
+  <select
     name="remoteProgram"
     id="remoteProgram"
-    placeholder="Programa Remoto"
-    class="formSupport__Input"
     [(ngModel)]="support.remoteProgram"
-  />
+    class="formSupport__select"
+  >
+    <option value="" disabled selected>Programa Remoto</option>
+    <option value="Any Desk">Any Desk</option>
+    <option value="Team Viewer">Team Viewer</option>
+  </select>
+
   <input
     type="text"
     name="solution"
@@ -62,13 +69,16 @@
     class="formSupport__Input"
     [(ngModel)]="support.solutionDate"
   />
-  <input
-    type="text"
+  <select
     name="state"
     id="state"
-    placeholder="Estado"
-    class="formSupport__Input"
     [(ngModel)]="support.state"
-  />
+    class="formSupport__select"
+  >
+    <option value="" disabled selected> Estado</option>
+    <option value="Abierto">Abierto</option>
+    <option value="Cerrado">Cerrado</option>
+  </select>
+
   <button class="formSupport__Button">{{ titleForm }}</button>
 </form>

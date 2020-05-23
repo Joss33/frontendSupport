@@ -57,13 +57,21 @@ export class ClientFormComponent implements OnInit {
 
   updateClient() {
     const clientID = this.activatedRoute.snapshot.params;
-    this.clientService.updateClient(clientID.id, this.client).subscribe(
-      (res) => {
-        this.router.navigate(['/app']);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    if (
+      this.client.name !== '' ||
+      this.client.phone !== '' ||
+      this.client.company !== ''
+    ) {
+      this.clientService.updateClient(clientID.id, this.client).subscribe(
+        (res) => {
+          this.router.navigate(['/app']);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    } else {
+      alert('Todos los campos son requeridos');
+    }
   }
 }

@@ -5,6 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { SupportFormComponent } from './components/support-form/support-form.component';
 import { SupportListComponent } from './components/support-list/support-list.component';
 
+// Guards
+import { AuthGuard } from './../guards/auth.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -12,10 +15,12 @@ const routes: Routes = [
   },
   {
     path: 'support/create/:clientID',
+    canActivate: [AuthGuard],
     component: SupportFormComponent,
   },
   {
     path: 'support/update/:id/:clientID',
+    canActivate: [AuthGuard],
     component: SupportFormComponent,
   },
 ];

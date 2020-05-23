@@ -15,24 +15,19 @@ export class LoginComponent implements OnInit {
     username: '',
     password: '',
   };
-
   ngOnInit(): void {}
 
   submitLogin() {
-    if (this.user.username !== '' || this.user.password !== '') {
-      this.loginService.login(this.user).subscribe(
-        (res) => {
-          console.log(res);
-          this.router.navigate(['/app']);
-        },
-        (err) => {
-          if (err.status === 401) {
-            alert('El usuario no exite');
-          }
-        }
-      );
-    } else {
-      alert('Todos los campos son necesarios');
-    }
+    console.log(this.user);
+    this.loginService.login(this.user).subscribe(
+      (res) => {
+        console.log(res);
+        localStorage.setItem('access_token', res.access_token);
+        this.router.navigate(['/app']);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }

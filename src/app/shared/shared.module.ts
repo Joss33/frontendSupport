@@ -4,12 +4,14 @@ import { RouterModule } from '@angular/router';
 
 // Components
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
+// Pipes
 import { FilterPipe } from './pipe/filter/filter.pipe';
 import { FilterSupportPipe } from './pipe/filter/filter-support.pipe';
-
+// Guards
 @NgModule({
   declarations: [NavButtonComponent, FilterPipe, FilterSupportPipe],
   imports: [CommonModule, RouterModule],
+  providers: [],
   exports: [NavButtonComponent, FilterPipe, FilterSupportPipe],
 })
 export class SharedModule {}

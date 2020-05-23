@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Client } from './../../../core/model/client.model';
 import { SupportListComponent } from './../../../support/components/support-list/support-list.component';
 import { ClientService } from './../../../core/services/client/client.service';
+import { LoginService } from './../../../core/services/login/login.service';
 
 @Component({
   selector: 'app-client-list',
@@ -33,7 +34,11 @@ export class ClientListComponent implements OnInit {
     company: '',
   };
 
-  constructor(private clientService: ClientService, private router: Router) {}
+  constructor(
+    private clientService: ClientService,
+    private loginService: LoginService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.getClients();

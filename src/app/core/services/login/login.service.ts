@@ -1,18 +1,32 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { User } from './../../model/user.model';
 import { environment } from './../../../../environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  // private token: string;
-  constructor(public http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  login(user: User): Observable<any> {
-    return this.http.post<User>(`${environment.url_api}/auth/login`, user);
+  login(user: User) {
+    return this.http.post<any>(`${environment.url_api}/auth/login`, user);
+  }
+
+  // tslint:disable-next-line: ban-types
+  loggedIn(): Boolean {
+    // tslint:disable-next-line: no-unused-expression
+    return !!localStorage.getItem('access_token');
+  }
+
+  getToken() {
+    return localStorage.getItem('access_token');
+  }
+
+  logout() {
+    localStorage.removeItem('acccess_token');
+    this.router.navigate(['/login']);
   }
 }

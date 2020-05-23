@@ -48,9 +48,9 @@ export class SupportFormComponent implements OnInit {
     if (params.id && params.clientID) {
       this.supportService.getSupport(params.id).subscribe((res) => {
         this.support = res;
-        this.support.date = moment(this.support.date).format('YYYY-DD-MM');
+        this.support.date = moment(this.support.date).format('YYYY-MM-DD');
         this.support.solutionDate = moment(this.support.date).format(
-          'YYYY-DD-MM'
+          'YYYY-MM-DD'
         );
         this.edit = true;
         this.titleForm = 'Editar';
@@ -75,23 +75,43 @@ export class SupportFormComponent implements OnInit {
 
   updateSupport() {
     const supportID = this.activatedRoute.snapshot.params;
-    this.supportService.updateSupport(supportID.id, this.support).subscribe(
-      (res) => {
-        this.router.navigate(['/app']);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    if (
+      this.support.date !== '' ||
+      this.support.detail !== '' ||
+      this.support.priority !== '' ||
+      this.support.remoteProgram !== '' ||
+      this.support.state !== ''
+    ) {
+      this.supportService.updateSupport(supportID.id, this.support).subscribe(
+        (res) => {
+          this.router.navigate(['/app']);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    } else {
+      alert('Todos los campos son necesarios');
+    }
   }
 
   submitSupport() {
-    this.supportService.createSupport(this.support).subscribe(
-      (res) => {
-        console.log(res);
-        this.router.navigate(['/app']);
-      },
-      (err) => console.log(err)
-    );
+    if (
+      this.support.date !== '' ||
+      this.support.detail !== '' ||
+      this.support.priority !== '' ||
+      this.support.remoteProgram !== '' ||
+      this.support.state !== ''
+    ) {
+      this.supportService.createSupport(this.support).subscribe(
+        (res) => {
+          console.log(res);
+          this.router.navigate(['/app']);
+        },
+        (err) => console.log(err)
+      );
+    } else {
+      alert('Todos los campos son necesarios');
+    }
   }
 }

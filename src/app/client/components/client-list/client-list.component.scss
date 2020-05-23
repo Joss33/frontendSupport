@@ -9,6 +9,14 @@
   padding-right: 24px;
   background: #0e7cff;
   box-shadow: 0px 4px 7px 0px rgba(14, 124, 255, 0.5);
+  a {
+    color: white;
+    font-size: 32px;
+    position: absolute;
+    top: 44px;
+    right: 32px;
+    cursor: pointer;
+  }
 }
 .navbar__title {
   margin-top: 20px;

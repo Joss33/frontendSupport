@@ -4,6 +4,9 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 // RoutesComponent
 import { LayoutComponent } from './layout/layout.component';
 
+// Guards
+import { AuthGuard } from './guards/auth.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -16,11 +19,13 @@ const routes: Routes = [
       },
       {
         path: 'app',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./client/client.module').then((m) => m.ClientModule),
       },
       {
         path: 'app',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./support/support.module').then((m) => m.SupportModule),
       },
