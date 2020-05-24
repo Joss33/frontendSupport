@@ -26,7 +26,8 @@ export class LoginService {
   }
 
   logout() {
-    localStorage.removeItem('acccess_token');
+    localStorage.removeItem('access_token');
+    // localStorage.removeItem('Autorization');
     this.router.navigate(['/login']);
   }
 }
