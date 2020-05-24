@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { MaterialModule } from './material/material.module';
 import { LayoutComponent } from './layout/layout.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptorService } from './core/services/token-interceptor/token-interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -22,6 +24,8 @@ import { TokenInterceptorService } from './core/services/token-interceptor/token
     SharedModule,
     CoreModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [
     AuthGuard,

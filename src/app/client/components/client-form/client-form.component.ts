@@ -28,7 +28,6 @@ export class ClientFormComponent implements OnInit {
     const params = this.activatedRoute.snapshot.params;
     if (params.id) {
       this.clientService.getClient(params.id).subscribe((res) => {
-        console.log(res);
         this.client = res;
         this.edit = true;
         this.titleForm = 'Editar';
@@ -45,7 +44,6 @@ export class ClientFormComponent implements OnInit {
     ) {
       this.clientService.createClient(this.client).subscribe(
         (res) => {
-          console.log(res);
           this.router.navigate(['/app']);
         },
         (err) => console.log(err)

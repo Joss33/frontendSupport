@@ -18,16 +18,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   submitLogin() {
-    console.log(this.user);
-    this.loginService.login(this.user).subscribe(
-      (res) => {
-        console.log(res);
-        localStorage.setItem('access_token', res.access_token);
-        this.router.navigate(['/app']);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    this.loginService.login(this.user).subscribe((res) => {
+      console.log(res);
+      localStorage.setItem('access_token', res.access_token);
+      this.router.navigate(['/app']);
+    });
   }
 }

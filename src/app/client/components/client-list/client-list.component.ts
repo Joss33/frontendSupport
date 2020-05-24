@@ -123,4 +123,8 @@ export class ClientListComponent implements OnInit {
   }
   // //////////////////////////////////////////////////////////////////
   // Functions Supports End
+
+  logout() {
+    this.loginService.logout();
+  }
 }

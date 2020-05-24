@@ -105,7 +105,6 @@ export class SupportFormComponent implements OnInit {
     ) {
       this.supportService.createSupport(this.support).subscribe(
         (res) => {
-          console.log(res);
           this.router.navigate(['/app']);
         },
         (err) => console.log(err)
